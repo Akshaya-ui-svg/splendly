@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Terms and Conditions — Spendly{% endblock %}
+
+{% block content %}
+<section class="terms-container">
+    <div class="terms-inner">
+        <h1 class="terms-title">Terms and Conditions</h1>
+        <p class="terms-last-updated">Last Updated: September 10, 2026</p>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">1. Acceptance of Terms</h2>
+            <p>By creating an account or using the Spendly service, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our service.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">2. Use of Service</h2>
+            <p>Spendly is provided as a personal finance tracking tool. You agree to use the service only for lawful purposes and in a manner that does not infringe the rights of others or restrict their use of the service.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">3. User Data</h2>
+            <p>You are responsible for the accuracy of the data you enter into Spendly. We implement reasonable security measures to protect your information, but we cannot guarantee absolute security. Your data is used solely for the purpose of providing the tracking service to you.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">4. Limitations of Liability</h2>
+            <p>Spendly is provided "as is" without warranties of any kind. In no event shall Spendly be liable for any indirect, incidental, or consequential damages arising out of your use of the service, including but not limited to financial loss due to inaccuracies in tracking.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">5. Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. We will notify users of any significant changes by posting the updated terms on this page. Your continued use of the service after changes are posted constitutes your acceptance of the new terms.</p>
+        </div>
+
+        <div class="terms-footer">
+            <a href="{{ url_for('landing') }}" class="btn-ghost">Back to Home</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .terms-container {
+        padding: 4rem 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: var(--ink);
+    }
+    .terms-inner {
+        background: var(--paper-card);
+        padding: 3rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .terms-title {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: var(--ink);
+    }
+    .terms-last-updated {
+        text-align: center;
+        color: var(--ink-muted);
+        margin-bottom: 3rem;
+        font-size: 0.9rem;
+    }
+    .terms-section {
+        margin-bottom: 2rem;
+    }
+    .terms-section-title {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--accent);
+    }
+    .terms-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        text-align: center;
+    }
+</style>
+{% endblock %}
