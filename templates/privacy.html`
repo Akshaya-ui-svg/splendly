@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy — Spendly{% endblock %}
+
+{% block content %}
+<section class="terms-container">
+    <div class="terms-inner">
+        <h1 class="terms-title">Privacy Policy</h1>
+        <p class="terms-last-updated">Last Updated: September 10, 2026</p>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">1. Data We Collect</h2>
+            <p>To provide our service, Spendly collects the following information:
+               <br>• <strong>Account Information:</strong> Your email address and password used for authentication.
+               <br>• <strong>Financial Data:</strong> The expense entries you manually log, including amounts, categories, and dates.
+               <br>• <strong>Usage Data:</strong> Basic information about how you interact with our application to help us improve the user experience.
+            </p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">2. How We Use Your Data</h2>
+            <p>We use your data exclusively to:
+               <br>• Maintain your account and provide secure access to your financial records.
+               <br>• Generate spending reports and summaries based on your logged expenses.
+               <br>• Improve the functionality and performance of the Spendly application.
+            </p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">3. Data Storage</h2>
+            <p>Your data is stored in a secure database. We implement industry-standard security measures to prevent unauthorized access, disclosure, or modification of your personal and financial information.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">4. Third Party Services</h2>
+            <p>Spendly does not sell, trade, or otherwise transfer your personal information to outside parties. We do not use third-party tracking cookies or advertising networks. Any service providers we use to host our application are bound by strict confidentiality agreements.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section-title">5. Contact Us</h2>
+            <p>If you have any questions regarding this Privacy Policy or the handling of your data, please contact us at <strong>privacy@spendly.example.com</strong>.</p>
+        </div>
+
+        <div class="terms-footer">
+            <a href="{{ url_for('landing') }}" class="btn-ghost">Back to Home</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .terms-container {
+        padding: 4rem 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: var(--ink);
+    }
+    .terms-inner {
+        background: var(--paper-card);
+        padding: 3rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .terms-title {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: var(--ink);
+    }
+    .terms-last-updated {
+        text-align: center;
+        color: var(--ink-muted);
+        margin-bottom: 3rem;
+        font-size: 0.9rem;
+    }
+    .terms-section {
+        margin-bottom: 2rem;
+    }
+    .terms-section-title {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--accent);
+    }
+    .terms-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        text-align: center;
+    }
+</style>
+{% endblock %}
