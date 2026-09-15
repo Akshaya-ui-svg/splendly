@@ -33,6 +33,20 @@ def get_db():
         g.db = get_db_connection()
     return g.db
 
+def create_user(name, email, password_hash):
+    """
+    Creates a new user in the database.
+    Returns the new user's ID on success.
+    Raises sqlite3.IntegrityError if the email already exists.
+    """
+    db = get_db()
+    cursor = db.execute(
+        'INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)',
+        (name, email, password_hash)
+    )
+    db.commit()
+    return cursor.lastrowid
+
 def init_db():
     """
     Initializes the database by creating the users and expenses tables.

@@ -1,7 +1,10 @@
-from flask import Flask, render_template
-from database.db import init_db, seed_db
+from flask import Flask, render_template, request, redirect, url_for, flash
+from database.db import init_db, seed_db, create_user
+from werkzeug.security import generate_password_hash
+import re
 
 app = Flask(__name__)
+app.secret_key = 'dev-secret-key-for-spendly'
 
 with app.app_context():
     init_db()
@@ -18,8 +21,38 @@ def landing():
     return render_template("landing.html")
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip()
+        password = request.form.get("password", "").strip()
+
+        # Basic validation
+        if not name or not email or not password:
+            flash("All fields are required", "error")
+            return render_template("register.html")
+
+        # Email validation
+        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            flash("Please enter a valid email address", "error")
+            return render_template("register.html")
+
+        # Password strength validation
+        if len(password) < 8:
+            flash("Password must be at least 8 characters long", "error")
+            return render_template("register.html")
+
+        try:
+            hashed_pw = generate_password_hash(password)
+            create_user(name, email, hashed_pw)
+            flash("Account created successfully! Please sign in.", "success")
+            return redirect(url_for("login"))
+        except Exception:
+            # Assuming IntegrityError for duplicate email is the primary case
+            flash("This email is already registered", "error")
+            return render_template("register.html")
+
     return render_template("register.html")
 
 
