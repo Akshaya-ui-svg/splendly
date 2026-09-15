@@ -33,6 +33,15 @@ def get_db():
         g.db = get_db_connection()
     return g.db
 
+def get_user_by_email(email):
+    """
+    Retrieves a user record by email.
+    Returns the user row if found, otherwise None.
+    """
+    db = get_db()
+    return db.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
+
+
 def create_user(name, email, password_hash):
     """
     Creates a new user in the database.
